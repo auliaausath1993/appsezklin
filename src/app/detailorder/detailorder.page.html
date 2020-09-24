@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button class="btn-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{service_type}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-row class="border-bottom">
+        <ion-col size="2">
+            <img class="img-profile" [src]="photo"/>
+        </ion-col>
+        <ion-col size="6">
+            <p class="title-small margin-remove">Mitra</p>
+            <p class="title margin-minus margin-remove">{{nama}}</p>
+        </ion-col>
+        <ion-col size="2">
+            <div class="mail-icon">
+                <ion-icon class="icon-set" name="mail-outline"></ion-icon>
+            </div>
+        </ion-col>
+        <ion-col size="2">
+            <div class="call-icon">
+                <ion-icon class="icon-set" name="call-outline"></ion-icon>
+            </div>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <p class="title-small margin-remove">Status</p>
+            <p class="title margin-minus margin-remove red" *ngIf="status==='Pending'">Pending</p>
+        </ion-col>
+        <ion-col size="12" class="margin-minus">
+            <p class="title-small margin-remove">Tipe Service</p>
+            <p class="title margin-minus margin-remove">{{service_type}}</p>
+        </ion-col>
+        <ion-col size="6" class="margin-minus">
+            <p class="title-small margin-remove">Tanggal Order</p>
+            <p class="title margin-minus margin-remove">{{date_order}}</p>
+        </ion-col>
+        <ion-col size="6" class="margin-minus">
+            <p class="title-small margin-remove">Tanggal Selesai</p>
+            <p class="title margin-minus margin-remove">-</p>
+        </ion-col>
+        <ion-col size="12" class="margin-minus">
+            <p class="title-small margin-remove">Alamat</p>
+            <p class="title margin-minus margin-remove">{{alamat}}</p>
+            <p>
+                <a class="btn-manual">Lihat Peta</a>
+            </p>
+        </ion-col>
+    </ion-row>
+</ion-content>

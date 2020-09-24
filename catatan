@@ -1,0 +1,9 @@
+#IONIC
+1. di file index.html ubah api key google yang berbayar ini sudah tak kasih api keynya yang punyanya mas
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs_vcVmZN3VW6D449gPaw4U2XWNxmRlJU&libraries=places"></script>
+2. di file config.xml juga
+<preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyBs_vcVmZN3VW6D449gPaw4U2XWNxmRlJU" />
+<preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyBs_vcVmZN3VW6D449gPaw4U2XWNxmRlJU" />
+
+#BACKEND LARAVEL
+1.Import desain db yang baru

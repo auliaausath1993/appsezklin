@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+    <ion-searchbar (ngModel)="alamat2" placeholder="Search Location" name="alamat2" (ionInput)="gmaps($event)"></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-list [hidden]="!ishidden.length">
+        <ion-item *ngFor="let result of geoSearchResult" tappable (click)="checkedLocation(result.description)">
+            <ion-icon name="bookmark-outline" slot="start"></ion-icon>  <p style="color:#3f504c;margin:4px;">{{ result.description }}</p>
+        </ion-item>
+    </ion-list>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button color="secondary" (click)="goBack()">
+            <ion-icon name="close"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

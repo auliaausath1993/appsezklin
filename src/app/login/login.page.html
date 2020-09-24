@@ -1,0 +1,23 @@
+<ion-content [fullscreen]="true" class="content">
+    <form [formGroup] = "FormLogin" (ngSubmit)="loginApiFunc()">
+        <ion-row class="temp-login">
+            <ion-col size="12">
+                <img src="../../assets/images/logo.png" class="logo" alt="Logo"/>
+            </ion-col> 
+            <ion-col size="12" class="form-login">
+                <div class="form-input">
+                    <ion-label class="label white">Number Handphone</ion-label>
+                    <ion-input type="text" name="phone" formControlName="phone" placeholder="Entry Number Handphone"></ion-input> 
+                </div>           
+            </ion-col>
+            <ion-col size="12" class="form-button">
+                <ion-button [disabled]="!FormLogin.valid" type="submit" class="manual-button" expand="block" size="medium">
+                    Login
+                </ion-button>
+                <ion-button (click)="goRegister()" class="manual-button outline" expand="block" color="transparent" size="medium">
+                    Register
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+    <ion-icon class="icon-header" name="document" slot="start"></ion-icon>
+    <ion-title>My Order</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-row>
+    <ion-segment [(ngModel)]="list_data">
+        <ion-segment-button value="list-1">
+          <b class="segment">PENDING</b>
+        </ion-segment-button>
+        <ion-segment-button value="list-2">
+          <b class="segment">RESERVE</b>
+        </ion-segment-button>
+        <ion-segment-button value="list-3">
+         <b class="segment">ONGOING</b>
+        </ion-segment-button>
+        <ion-segment-button value="list-4">
+         <b class="segment">COMPLED</b>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-row>
+    <ion-row [ngSwitch]="list_data">
+        <ion-col *ngSwitchCase="'list-1'">
+           <ion-list>
+            <ion-label *ngIf="!orderPending || orderPending.length === 0">
+                <p style="text-align: center;">Data tidak tersedia.</p>
+            </ion-label>
+            <ion-item *ngFor="let item of orderPending" (click)="goDetail(item.order_id)">
+                <span slot="start" class="icon-item">
+                    <ion-icon *ngIf="item.type==='Cleaning'" slot="icon-only" class="icon-water" name="water"></ion-icon>
+                    <ion-icon *ngIf="item.type==='Laundry'" slot="icon-only" class="icon-shirt" name="shirt"></ion-icon>
+                </span>
+                <ion-label>
+                    <b>{{item.service_type}}</b>
+                    <p class="qty-set">{{item.qty}}</p>
+                    <p class="time-set">{{item.schedule}}</p>
+                </ion-label>
+            </ion-item>
+           </ion-list>
+        </ion-col>
+        <ion-col *ngSwitchCase="'list-2'">
+            RESERVE
+        </ion-col>
+        <ion-col *ngSwitchCase="'list-3'">
+            ONGOING
+        </ion-col>
+        <ion-col *ngSwitchCase="'list-4'">
+            COMPLED
+        </ion-col>
+    </ion-row>
+</ion-content>

@@ -1,0 +1,27 @@
+.content{
+    --ion-background-color: #314A9F;
+}
+.header{
+    color: #fff;
+}
+.background{
+    --ion-background-color: #314A9F;
+}
+.temp-content{
+    margin-top: 10%;
+}
+.title{
+    color: #fff;
+    font-weight: bold;
+    margin-left:10px;
+}
+.body-content{
+    margin-top:0px;
+    --ion-background-color:#fff;
+    height:81%;
+    display: block;
+    overflow-y: auto;
+}
+.text-body{
+    padding:5px;
+}

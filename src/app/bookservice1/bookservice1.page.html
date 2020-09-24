@@ -1,0 +1,111 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button class="btn-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Book Service</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-row class="temp-content">
+        <ion-col size="12">
+            <ion-row>
+                <ion-col size="2">
+                    <span class="icon-item">
+                        <ion-icon slot="icon-only" class="icon-shirt" name="shirt"></ion-icon>
+                    </span>
+                </ion-col>
+                <ion-col size="10">
+                    <p class="title">Loundry Service</p>
+                </ion-col>
+            </ion-row>
+        </ion-col> 
+    </ion-row>
+    <form [formGroup] = "FormOrder" (ngSubmit)="SaveFunc()">
+    <ion-list>
+        <ion-input type="hidden" name="id" formControlName="id" value="{{this.id}}"></ion-input>
+        <ion-input type="hidden" name="partner" formControlName="partner" value="{{this.partner}}"></ion-input>
+        <ion-input type="hidden" name="type" formControlName="type" value="{{this.type}}"></ion-input>
+        <ion-row class="border-bottom">
+            <ion-col size="12">
+                <p class="title-body">Layanan</p>
+            </ion-col>
+        </ion-row>
+        <ion-item class="margin20left">
+            <ion-label>Pilih Layanan</ion-label>
+            <ion-select interface="action-sheet" placeholder="Pilih" (ionChange)="setHarga()" name="layanan" formControlName="layanan">
+              <ion-select-option *ngFor="let row of setlayanan" value="{{row.id}}#{{row.price}}">{{row.name}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        <ion-row class="border-bottom">
+            <ion-col size="12">
+                <p class="title-body">Waktu Penjemputan</p>
+            </ion-col>
+        </ion-row>
+        <ion-item class="margin20left">
+            <ion-label>Pilih Tanggal</ion-label>
+            <ion-datetime [min]="date_now" placeholder="Tanggal" name="tanggal" formControlName="tanggal" placeholder="Tanggal"></ion-datetime>
+        </ion-item>
+        <ion-item class="margin20left">
+            <ion-label>Pilih Jam</ion-label>
+            <ion-datetime minuteValues="0,30" name="jam" formControlName="jam" display-format="HH:mm" picker-format="HH:mm" placeholder="Jam"></ion-datetime>
+        </ion-item>
+        <ion-row class="border-bottom">
+            <ion-col size="12">
+                <p class="title-body">Berat Cucian</p>
+            </ion-col>
+        </ion-row>
+        <ion-item class="margin20left">
+            <ion-col size="2">
+                <span class="icon-item" (click)="onDescrement()">
+                <ion-icon slot="icon-only" name="remove"></ion-icon>
+                </span>
+            </ion-col>
+            <ion-col size="8">
+                <p class="form-time">{{currentNumberText}}</p>
+                <ion-input type="hidden" name="qty" formControlName="qty" value="{{currentNumber}}"></ion-input>
+            </ion-col>
+            <ion-col size="2">
+                <span class="icon-item" (click)="onIncrement()">
+                    <ion-icon slot="icon-only" name="add"></ion-icon>
+                </span>
+            </ion-col>
+        </ion-item>
+        <ion-row class="border-bottom">
+            <ion-col size="12">
+                <p class="title-body">Alamat</p>
+            </ion-col>
+        </ion-row>
+        <ion-item>
+            <ion-label>
+                <ion-icon name="locate"></ion-icon>
+            </ion-label>
+            <ion-button *ngIf="loc===''||loc===undefined" expand="block" slot="end" color="secondary" size="medium" (click)="showModal()">
+                Location
+            </ion-button>
+            <ion-input *ngIf="loc!==''" placeholder="Ketikkan Alamat Anda" id="alamat" name="alamat" formControlName="alamat"  [(ngModel)]="alamat" (click)="showModal()" clearInput></ion-input>
+         </ion-item>
+        <ion-input type="hidden" name="lat" formControlName="lat" value="{{lat}}"></ion-input>
+        <ion-input type="hidden" name="lng" formControlName="lng" value="{{lng}}"></ion-input>
+        <ion-list [hidden]="!ishidden.length">
+            <ion-item *ngFor="let result of geoSearchResult" tappable (click)="checkedLocation(result.description)">
+                <ion-icon name="locate"></ion-icon>  {{ result.description }}
+            </ion-item>
+        </ion-list>
+        <ion-item>
+            <ion-label position="floating">Note</ion-label>
+            <ion-textarea name="note" formControlName="note"></ion-textarea>
+        </ion-item>
+    </ion-list>
+    <ion-item>
+        <ion-col size="12">
+            <p class="amount">{{net_amt | currency:"Total Harga Rp. "}}</p>
+        </ion-col>
+    </ion-item>
+    <ion-col size="12" class="form-button">
+        <ion-button [disabled]="!FormOrder.valid" type="submit" expand="block" size="medium">
+            Booking
+        </ion-button>
+    </ion-col>
+    </form>
+</ion-content>

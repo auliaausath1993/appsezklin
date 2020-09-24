@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  <span slot="start">
+    <img class="icon-header" src="../../assets/images/tes-icon.png"/>
+  </span>
+  <ion-title>EzClean</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-row class="slider">
+    <!--Parameter 3 : partner_id,type_service,nominal-->
+    <ion-slide (click)="goBookservice(1,'Cleaning')">
+        <img
+            src="../../assets/images/slider/advance01.jpg"
+            />
+    </ion-slide>
+  </ion-row>
+  <ion-row class="slider">
+      <ion-slide (click)="goBookservice(2,'Laundry')">
+          <img
+              src="../../assets/images/slider/medical01.jpg"
+              />
+      </ion-slide>
+  </ion-row>
+
+</ion-content>

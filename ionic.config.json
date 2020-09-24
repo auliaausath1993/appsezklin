@@ -1,0 +1,7 @@
+{
+  "name": "ez_clean",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

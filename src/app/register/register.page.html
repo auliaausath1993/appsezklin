@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+    <ion-toolbar class="header background">
+    <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrasi</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="content">
+<form [formGroup] = "FormRegister" (ngSubmit)="registerApiFunc()">
+    <ion-row class="temp-content">
+        <ion-col size="12">
+            <ion-row>
+                <ion-col size="6">
+                    <p class="title white">Registrasi</p>
+                </ion-col>
+                <ion-col size="6">
+                    <img src="../../assets/images/logo.png" class="logo" alt="Logo"/>
+                </ion-col>
+            </ion-row>
+        </ion-col> 
+        <ion-col size="12" class="form-content">
+            <div class="form-input">
+                <ion-label class="label white">Nama Lengkap</ion-label>
+                <ion-input name="name" formControlName="name" type="text" placeholder="Masukkan Nama Lengkap"></ion-input> 
+            </div>           
+        </ion-col>
+        <ion-col size="12" class="form-content">
+            <div class="form-input">
+                <ion-label class="label white">Nomor Handphone</ion-label>
+                <ion-input name="phone" formControlName="phone" type="text" placeholder="Masukkan Nomor Handphone"></ion-input> 
+            </div>           
+        </ion-col>
+        <ion-col size="12" class="form-content">
+            <div class="form-input">
+                <ion-label class="label white">Alamat Email (Opsional)</ion-label>
+                <ion-input name="email" formControlName="email" type="text" placeholder="Masukkan Alamat Email"></ion-input> 
+            </div>           
+        </ion-col>
+    </ion-row>
+    <ion-col size="12" class="form-button">
+        <ion-button expand="block" size="medium" [disabled]="!FormRegister.valid" type="submit">
+            Registrasi
+        </ion-button>
+    </ion-col>
+</form>
+</ion-content>

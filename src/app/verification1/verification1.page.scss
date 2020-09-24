@@ -1,0 +1,52 @@
+.header{
+    color: #fff;
+}
+.background{
+    --ion-background-color: #314A9F;
+}
+.content{
+    --ion-background-color: #314A9F;
+}
+.temp-content{
+    margin-top: 20%;
+}
+.logo{
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.form-content{
+    margin-top: 10%;
+}
+.label{
+    text-align: center;
+    font-weight: bold;
+}
+.white{
+    color:#ffffff;
+}
+.form-button{
+    position: absolute;
+    width: 50%;
+    bottom: 1%;
+}
+.link{
+    text-decoration: underline;
+}
+.form-input{
+    text-align: center;
+    font-size: 14px;
+    width: 76%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    ion-input{
+        font-size:14px;
+        font-weight:600px;
+        input {
+            text-align: center;
+        }
+        --background: #ffffff;
+    }
+}

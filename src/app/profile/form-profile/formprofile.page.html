@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Profile</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form [formGroup] = "FormEdit" (ngSubmit)="EditpiFunc()">
+    <ion-list lines="full" class="ion-no-margin">
+        <ion-list-header lines="full">
+          <ion-label>
+              <ion-row>
+                  <ion-col size="2">
+                    <ion-icon class="icon-header" name="create-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="10">
+                    <p class="header-label">Form Profile</p>
+                  </ion-col>
+              </ion-row>
+          </ion-label>
+        </ion-list-header>
+        <ion-item>
+           <ion-input type="hidden" name="id" formControlName="id" value="{{this.id}}"></ion-input>
+          <ion-label position="stacked">Nama Lengkap</ion-label>
+          <ion-input placeholder="Masukkan Nama Lengkap" name="username" formControlName="username" value="{{this.username}}"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="stacked">Alamat Email</ion-label>
+            <ion-input placeholder="Masukkan Email" name="email" formControlName="email" value="{{this.email}}"></ion-input>
+        </ion-item>
+        <ion-item>
+        <ion-label position="stacked">No. Handphone</ion-label>
+        <ion-input placeholder="Masukkan No Handphone" name="phone" formControlName="phone" value="{{this.phone}}"></ion-input>
+        </ion-item>
+        <div class="form-button">
+            <ion-button [disabled]="!FormEdit.valid" type="submit" expand="full" color="secondary">Edit Profile</ion-button>
+        </div>
+        </ion-list>
+    </form>
+</ion-content>

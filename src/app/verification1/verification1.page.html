@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+    <ion-toolbar class="header background">
+    <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Verifikasi Kode</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="content">
+    <ion-row class="temp-content">
+        <ion-col size="12">
+            <img src="../../assets/images/logo.png" class="logo" alt="Logo"/>
+        </ion-col> 
+        <ion-col size="12" class="form-content">
+            <div class="form-input">
+                <ion-label class="label white">Masukkan Kode OTP</ion-label>
+                <ion-row>
+                    <ion-col size="3">
+                        <ion-input type="text"></ion-input>
+                    </ion-col>
+                    <ion-col size="3">
+                        <ion-input type="text"></ion-input>
+                    </ion-col>
+                    <ion-col size="3">
+                        <ion-input type="text"></ion-input>
+                    </ion-col>
+                    <ion-col size="3">
+                        <ion-input type="text"></ion-input>
+                    </ion-col>
+                </ion-row>
+                <p class="label white left">Kode OTP belum masuk? <a (click)="goSend()" class="link white left">Kirim Ulang</a></p>
+            </div>           
+        </ion-col>
+        <ion-col size="12" class="form-button">
+            <ion-button expand="block" size="medium" (click)="goSyarat()">
+                Verifikasi OTP
+            </ion-button>
+        </ion-col>
+    </ion-row>
+</ion-content>
